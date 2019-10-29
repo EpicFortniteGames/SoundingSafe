@@ -5680,7 +5680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityX: 20
-  velocityY: 200
+  velocityY: 400
 --- !u!50 &580668637
 Rigidbody2D:
   serializedVersion: 4

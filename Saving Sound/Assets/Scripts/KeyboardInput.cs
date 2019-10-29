@@ -34,7 +34,10 @@ public class KeyboardInput : MonoBehaviour {
         }
         if (Input.GetKey("space") && GetComponent<StatsTracker>().jump == true)
         {
-            forceY = velocityY;
+            if(vel[1] < 4.8f){
+                forceY = velocityY;
+            }
+            print(vel);
             GetComponent<StatsTracker>().jump = false;
         }
         GetComponent<Rigidbody2D>().velocity = vel;
