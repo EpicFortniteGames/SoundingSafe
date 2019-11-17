@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\Handler.cs" />
     <Compile Include="Assets\Scripts\KeyboardInput.cs" />
     <Compile Include="Assets\Scripts\menu.cs" />
-    <Compile Include="Assets\Scripts\PlaySound.cs" />
     <Compile Include="Assets\Scripts\StatsTracker.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Phany/Documents/GitHub/SoundingSafe/Saving Sound/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

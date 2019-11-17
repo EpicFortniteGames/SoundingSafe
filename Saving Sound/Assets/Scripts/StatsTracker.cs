@@ -26,6 +26,7 @@ public class StatsTracker : MonoBehaviour
     {
         if (collision.gameObject.tag == "Destroyer")
         {
+            collision.gameObject.GetComponent<AudioSource>().GetComponent<AudioSource>().Play();
             lives--;
             if (lives == 0)
             {
@@ -60,18 +61,22 @@ public class StatsTracker : MonoBehaviour
     {
         if (collision.gameObject.tag == "Heart")
         {
+            collision.gameObject.GetComponent<AudioSource>().GetComponent<AudioSource>().Play();
             lives++;
         }
         else if (collision.gameObject.tag == "DoubleJump")
         {
+            collision.gameObject.GetComponent<AudioSource>().GetComponent<AudioSource>().Play();
             jump = true;
         }
         else if (collision.gameObject.tag == "Score")
         {
+            collision.gameObject.GetComponent<AudioSource>().GetComponent<AudioSource>().Play();
             score = score + 100;
         }
         else if (collision.gameObject.tag == "Checkpoint")
         {
+            collision.gameObject.GetComponent<AudioSource>().GetComponent<AudioSource>().Play();
             reached_checkpoint = true;
         }
         else if (collision.gameObject.tag == "Portal")
@@ -80,7 +85,7 @@ public class StatsTracker : MonoBehaviour
         }
         if (collision.gameObject.tag == "Heart" || collision.gameObject.tag == "Score")
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject,1);
         }
     }
 }
