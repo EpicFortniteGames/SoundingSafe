@@ -7,6 +7,8 @@ public class Handler : MonoBehaviour{
     public string scene;
     public Button button;
     public Button button2;
+    public Button button3;
+    public Button button4;
     
     void Start(){
 
@@ -22,5 +24,13 @@ public class Handler : MonoBehaviour{
 
     public void Level1(string scene){
         Application.LoadLevel("Level1");
+    }
+
+    public void Level2(string scene){
+        Application.LoadLevel("Level2");
+    }
+
+    public void Level3(string scene){
+        Application.LoadLevel("Level3");
     }
 }
