@@ -30,6 +30,7 @@ public class StatsTracker : MonoBehaviour
             if (lives == 0)
             {
                 Destroy(gameObject);
+                Application.LoadLevel("main_screen");
             }
             if (reached_checkpoint == true)
             {
@@ -44,8 +45,8 @@ public class StatsTracker : MonoBehaviour
         else
         {
             var relativePosition = transform.InverseTransformPoint(collision.transform.position);
-            //print(relativePosition.y);
-            if (relativePosition.y < -4f) // Detectar que la colision con el collider por debajo
+            print(relativePosition.y);
+            if (relativePosition.y < 0f) // Detectar que la colision con el collider por debajo
             {
                 jump = true;
             }
@@ -53,10 +54,6 @@ public class StatsTracker : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //if (collision.gameObject.tag != "DoubleJump")
-        //{
-        //    jump = false;
-        //}
         jump = false;
     }
     private void OnTriggerEnter2D(Collider2D collision) // Debe ser un Trigger para que no haya interaccion fisica con objetos de este estilo
@@ -65,19 +62,23 @@ public class StatsTracker : MonoBehaviour
         {
             lives++;
         }
-        else if(collision.gameObject.tag == "DoubleJump")
+        else if (collision.gameObject.tag == "DoubleJump")
         {
             jump = true;
         }
-        else if(collision.gameObject.tag == "Score")
+        else if (collision.gameObject.tag == "Score")
         {
             score = score + 100;
         }
-        else if(collision.gameObject.tag == "Checkpoint")
+        else if (collision.gameObject.tag == "Checkpoint")
         {
             reached_checkpoint = true;
         }
-        if (collision.gameObject.tag != "Checkpoint" && collision.gameObject.tag != "DoubleJump")
+        else if (collision.gameObject.tag == "Portal")
+        {
+            Application.LoadLevel("menu");
+        }
+        if (collision.gameObject.tag == "Heart" || collision.gameObject.tag == "Score")
         {
             Destroy(collision.gameObject);
         }
